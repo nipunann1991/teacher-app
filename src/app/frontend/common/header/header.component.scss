@@ -1,0 +1,29 @@
+@import '../../../../styles';
+
+nav{
+	background: $white;
+	padding: 15px 0;
+	border-bottom: 1px $light-gray solid;
+	
+	
+	ul{
+		li{
+			a{
+				font-weight: 600;
+			}
+		}
+	}
+
+	.btn-login{
+		background: transparent;
+		border: 1px $base-color solid;
+		border-radius: 50px;
+		color: $base-color;
+		margin-left: 10px;
+
+		&:hover{
+			background: $base-color;
+			color: $white;
+		}
+	}
+}

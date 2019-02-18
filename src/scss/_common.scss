@@ -1,0 +1,290 @@
+@charset 'UTF-8'; 
+
+@import 'variables';
+@import 'function';
+@import 'mixins';
+@import 'fonts';
+@import 'animate';
+
+*{
+	font-family: 'Muli', sans-serif;;
+}
+
+h1, h2, h3, h4{  
+	font-weight: 700;
+}
+
+
+body{   
+	font-size: $base-font-size;	
+	line-height: $base-font-size + 7;
+	letter-spacing: 0.02em;
+	background: #fafafa;
+	 
+}
+
+p{ 
+	font-size: $base-font-size;	
+	line-height: $base-font-size + 7;
+	letter-spacing: 0.02em;
+}
+
+
+.full-screen{
+	width: 100%;
+	height: 100vh;
+
+	.inner{
+		height: inherit;
+	}
+}
+
+.flex-center{
+	@include flex();
+	align-items: center;
+	justify-content: center;
+
+}
+
+.section{
+	padding: 80px 0;
+
+	.title{
+		margin-bottom: 30px;
+		text-align: center;
+
+		h2{
+			margin-bottom: 0;
+			position: relative;
+
+			&:after{
+				content: '.';
+				position: relative;
+				left: 0;
+				font-size: 40px;
+				color: $base-color;
+				margin-left: 5px;
+			}
+		}
+
+		i{
+			color: #818181;
+		}
+	}
+}
+
+
+.small-banner{
+	height: 200px;
+	background: image('header-bg.jpg');
+
+	.banner-inner{
+		display: table;
+		height: inherit;   
+	 
+	}
+}
+
+
+.section{
+	padding: 50px 0;
+
+	.left-panel{
+
+		.inner{
+			padding: 20px 15px;
+			background: $light-gray;	
+			border-radius: 10px;
+
+			h2{
+				font-size: $h4-font-size; 
+				padding-bottom: 15px;
+				border-bottom: 1px #bbbbbb  solid;
+				margin-bottom: 5px;
+			}
+
+			label{
+				margin-top: 10px;
+				font-weight: 700;
+				font-size: $base-font-size - 1;
+			}
+		}
+	}
+
+	.right-panel{
+		float: right;
+		
+		.top-bar{
+			overflow: hidden;
+			margin-bottom: 15px;
+
+			p{
+				float: left;
+				margin-bottom: 0;
+			} 
+				ul.result-grid{
+					padding-left: 0;
+					float: right;
+					margin: 0;
+
+					li{
+						list-style: none;
+						display: inline-block;
+						margin-right: 10px;
+
+						&:last-child{
+							margin-right: 0;
+						}
+
+						a{
+							text-decoration: none;
+							color: $dark-color;
+							font-size: $base-font-size + 2;
+						}
+					}
+				}
+			}
+		 
+		
+	}
+}
+
+.form-control{
+	border-radius: 10px;
+}
+
+.grouped-box{
+	border: 1px #d1d1d1 solid;
+	border-radius: 25px;
+	padding: 30px;
+}
+
+.main-wrapper{
+	padding: 0;
+	padding-top: $nav-height; 
+
+	.left-container{
+		float: left;
+	}
+
+	.right-container{
+		float: right;
+		@include calc('width', '100% - 66px');
+		padding: 25px 35px;
+		padding-top: 40px;
+		
+		.title{
+			margin-bottom: 25px;
+			
+
+			h2{
+				font-size: $h3-font-size + 3;
+				text-transform: capitalize;
+				margin-bottom: 0;
+				float: left; 
+			} 
+
+			button.transparent-btn{ 
+				border-radius: 20px;
+			}
+		}
+		
+	}
+}
+
+
+.site-loader{
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1003;
+}
+
+ 
+ button{
+ 	outline: 0 !important;
+ }
+
+.container{
+
+	@include breakpointMax($tablet-medium - 1){
+		max-width: 100%;	
+	}
+
+}
+ 
+.visible-lg{
+	display: none;
+
+	@include breakpoint($tablet){
+		display: block;
+	}
+
+ }
+
+
+ form{
+ 	small{
+ 		color: #fd1717;
+ 	}
+
+ 	.ng-invalid.ng-touched{
+ 		border: 1px #ff051c solid; 
+ 	} 
+
+ }
+
+.datepicker td, .datepicker th{
+	font-size: 14px;
+}
+
+.datepicker table tr td.active.active{
+	background: $base-color;
+
+	&:hover, &:focus{
+		background: darken($base-color, 15%);
+	}
+}
+
+.datepicker table tr td.selected{
+	background: #8c8a85;
+}
+
+
+.datepicker table tr td.range{
+	background: #fff7e0;
+}
+
+
+button.btn{
+	background: $nav-color; 
+	color: $white;
+	padding: 3px 30px;	
+}
+
+button.transparent-btn{
+	border: 1px $base-color solid;
+	float: right; 
+	color: $base-color;
+	padding: 2px 30px;	
+
+	&.danger{
+		border: 1px $danger-color solid; 
+		color: $danger-color;
+	}
+
+}
+
+button.back-btn{
+	background: $white;
+	padding: 0;
+	border: 0;
+	@include box-shadow(2px, 4px, 42px, -9px, rgba(142, 142, 142, 0.75));
+    float: left;
+    margin-right: 15px;
+    min-width: 40px;
+    height: 40px;
+    position: relative;
+    top: -3px;
+}

@@ -1,0 +1,186 @@
+
+<section id="banner" class="container-fluid banner">
+	<div class="container banner-inner">
+		<div class="banner-text">
+			<h1>Find your <span>teacher</span> & start learning</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+
+			<app-search-bar></app-search-bar> 
+			<br/><br/>
+			 
+			<!-- <h3>Sign Up as a Teacher</h3>
+			<p>and start teaching your students</p> -->
+
+		</div>
+	</div>
+</section>
+
+<section class="container-fluid subjects section">
+	<div class="container inner">
+		
+		<div class="title">
+			<h2>Subjects</h2>
+			<i>Search your teacher form your faviourit subject(s).</i>
+		</div>
+
+		<ngx-masonry [options]="myOptions" class="masonary-grid">
+	       	<ngxMasonryItem class="masonry-item"  *ngFor="let item of masonryItems">
+	        	<h3>{{item.title}}</h3>
+	      	</ngxMasonryItem>
+	    </ngx-masonry>
+
+		 
+	</div>
+</section>
+
+<section class="container-fluid new-tutors light-gray-bg section">
+	<div class="container inner">
+		
+		<div class="title">
+			<h2>New Teachers</h2>
+			<i>New teachers/ tutors who joined & approved recently.</i>
+		</div>
+
+
+		<div class="new-tutors-list">
+		  	<div class="tutor-card">
+
+		  		<div class="img">
+					<i class="verified-member icon-premium-badge" title="Verified Tutor"></i>
+		  		</div>
+		  		<div class="details">
+						<h3>Nipuna Nanayakkara</h3>
+						<span class="qualification">BSc (Hons) in Computer Science </span> 
+						<span class="location"><i class="icon-placeholder"></i>	Gampaha</span> 
+
+						<div class="subjects-labels"> 
+							<span class="badge">Computer Studies</span>
+							<span class="badge">English</span>
+							<span class="badge">Science</span>
+						</div> 
+
+						<div class="card-bottom">
+								<ul class="classes">
+										<li title="Individual Classes"><i class="icon-man-user"></i></li>
+										<li title="Group Classes"><i class="icon-multiple-users-silhouette"></i></li>
+										<li class="disabled" title="Mass Classes"><i class="icon-crowd-of-users"></i></li>
+								</ul>
+
+								<ul class="medium">
+										<li><span class="badge eng">E</span></li>
+										<li><span class="badge sin">සි</span></li>
+								</ul>
+						</div>
+						
+
+		  		</div>
+		  	
+		  	</div>
+		  	<div class="tutor-card">
+				<div class="img">
+			
+					</div>
+					<div class="details">
+						<h3>Ananda Kaluarachchi</h3>
+						<span class="qualification">BSc (Hons) in Physics</span> 
+						<span class="location"><i class="icon-placeholder"></i>	Kandy</span> 
+
+						<div class="subjects-labels"> 
+							<span class="badge">Physics</span>
+						</div> 
+
+						<div class="card-bottom">
+								<ul class="classes">
+										<li class="disabled" title="Individual Classes"><i class="icon-man-user"></i></li>
+										<li class="disabled" title="Group Classes"><i class="icon-multiple-users-silhouette"></i></li>
+										<li title="Mass Classes"><i class="icon-crowd-of-users"></i></li>
+								</ul>
+
+								<ul class="medium"> 
+										<li><span class="badge sin">සි</span></li>
+								</ul>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="tutor-card">
+					<div class="img">
+				
+					</div>
+					<div class="details">
+						<h3>Krishni Perera</h3>
+						<span class="qualification">BSc (Hons) in Physics</span> 
+						<span class="location"><i class="icon-placeholder"></i>	Colombo</span> 
+
+						<div class="subjects-labels"> 
+								<span class="badge">Physics</span>
+								<span class="badge">Biology</span>
+						</div> 
+
+						<div class="card-bottom">
+							<ul class="classes">
+									<li class="disabled" title="Individual Classes"><i class="icon-man-user"></i></li>
+									<li class="disabled" title="Group Classes"><i class="icon-multiple-users-silhouette"></i></li>
+									<li title="Mass Classes"><i class="icon-crowd-of-users"></i></li>
+							</ul>
+
+							<ul class="medium"> 
+								<li><span class="badge eng">E</span></li> 
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="tutor-card">
+					<div class="img">
+				
+					</div>
+					<div class="details">
+						<h3>Krishni Perera</h3>
+						<span class="qualification">BSc (Hons) in Physics</span> 
+						<span class="location"><i class="icon-placeholder"></i>	Colombo</span> 
+
+						<div class="subjects-labels"> 
+								<span class="badge">Physics</span>
+								<span class="badge">Biology</span>
+						</div> 
+
+						<div class="card-bottom">
+								<ul class="classes">
+										<li class="disabled" title="Individual Classes"><i class="icon-man-user"></i></li>
+										<li class="disabled" title="Group Classes"><i class="icon-multiple-users-silhouette"></i></li>
+										<li title="Mass Classes"><i class="icon-crowd-of-users"></i></li>
+								</ul>
+
+								<ul class="medium"> 
+									<li><span class="badge eng">E</span></li> 
+								</ul>
+						</div>
+
+					</div>
+				</div>
+				
+		   
+		</div>
+ 
+	</div>
+</section> 
+
+<section class="container-fluid ads section">
+	<div class="container inner">
+		
+		<div class="title">
+			<h2>Featured Ads</h2> 
+		</div>
+
+		<ngx-masonry [options]="myOptions" class="masonary-grid">
+				<ngxMasonryItem class="masonry-item"  *ngFor="let item of masonryItems1">
+				 <h3>{{item.title}}</h3>
+			   </ngxMasonryItem>
+		 </ngx-masonry>
+		 
+	</div>
+</section>
+

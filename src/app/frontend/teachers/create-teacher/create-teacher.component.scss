@@ -1,0 +1,44 @@
+@import '../../../../styles';
+
+.user-img-box{
+    width: 320px;
+    height: 320px;
+    background: #eee;
+    border: 3px $dark-gray dashed;
+}
+
+.mt30{
+    margin-top: 30px;
+}
+
+.block{
+    padding: 20px 35px;
+    background: $white;
+    @include box-shadow(0px, 2px, 16px, -3px, rgba(0,0,0,0.1)); 
+    border-radius: 10px;
+
+    .block2{
+        margin-top: 25px;
+    }
+
+    .custom-control-input{
+
+        &:checked~.custom-control-label::before{
+            background: $base-color;
+            border-color: $base-color;
+            outline: 0;
+            box-shadow: none;
+        }
+
+        &:focus{
+            outline: 0;
+            box-shadow: none;
+        }
+    }
+
+    h3{
+        font-size: $h4-font-size;
+        margin-bottom: 15px;
+    }
+
+}

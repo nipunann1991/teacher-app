@@ -1,0 +1,274 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+@mixin parent($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin clearfix() {
+  *zoom: 1;
+    &:before, &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  
+}
+
+@mixin no-underline() { 
+    &:link, &:visited, &:hover, &:active { 
+        text-decoration: none;
+    }
+}
+
+@mixin box { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+@mixin breakpoint($context) { 
+    @media screen and (min-width: $context) { 
+        @content;
+    }
+}
+
+@mixin breakpointMax($context) { 
+    @media screen and (max-width: $context) { 
+        @content;
+    }
+}
+
+@mixin flex-column() {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+@mixin flex() {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+
+@mixin skew($x, $y) {
+  -webkit-transform: skew($x, $y);
+  -moz-transform: skew($x, $y);
+  -ms-transform: skew($x, $y);
+  -o-transform: skew($x, $y);
+  transform: skew($x, $y);
+}
+
+@mixin background-opacity($color, $opacity: 1) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+@mixin transition-delay($delay) {
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
+
+@mixin transition($transition) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+
+@mixin calc($key, $value) {
+    #{$key}: -webkit-calc(#{$value});
+    #{$key}: -moz-calc(#{$value});
+    #{$key}: calc(#{$value});
+}
+
+
+@mixin box-shadow($top, $right, $bottom, $left, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $right $bottom $left $color;
+        -moz-box-shadow: inset $top $right $bottom $left $color;
+        box-shadow: inset $top $right $bottom $left $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $right $bottom $left $color;
+        -moz-box-shadow: $top $right $bottom $left $color;
+        box-shadow: $top $right $bottom $left $color;
+    }
+}
+
+@mixin rotate-angle($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees); 
+}
+
+
+@mixin animate-delay($no-of-items, $delay) {
+    @for $i from 1 through $no-of-items {
+        &:nth-of-type(#{$i}) {
+            animation-delay: $i * $delay;
+        }
+    }
+}
+
+@mixin opacity($value) {
+    $IEValue: $value*100;
+    opacity: $value;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+    filter: alpha(opacity=$IEValue);
+}
+
+@mixin ie-hack() {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+}
+
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+@mixin placeholder { 
+    @include optional-at-root('&::-webkit-input-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root('&:-moz-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root('&::-moz-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root('&:-ms-input-placeholder') {
+        @content;
+    }
+}
+
+@mixin mega-menu-mobile($base-color, $white-color: #fff ) {
+
+    h3 {
+        color: $base-color;
+    }
+
+    .myo-circle {
+        background: $base-color;
+    } 
+   
+}
+
+
+@mixin buttonBaseColor($bg-color, $font-color: #fff){
+    background-color: $bg-color;
+    color: $font-color; 
+
+    &:hover, &:focus{
+      background-color: darken($bg-color, 5%);
+      color: $font-color;  
+    }
+
+    &:active{
+      background-color: darken($bg-color, 5%);
+      color: $font-color;  
+    }
+
+}          
+
+
+@mixin bg-gradient($from, $to, $direction) {
+  background: $to;
+  background: -moz-linear-gradient(top, $from 0%, $to 80%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to));
+  background: -webkit-linear-gradient(top, $from 0%,$to 80%);
+  background: -o-linear-gradient(top, $from 0%,$to 80%);
+  background: linear-gradient(to $direction, $from 0%,$to 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})
+} 
+
+
+@mixin font-size($size:1.6, $line: $size * 1.5){
+    font-size:   ($size * 10) + px;
+    line-height: ($line * 10) + px;
+    font-size:   $size + rem;
+    line-height: $line + rem;
+}
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+}
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+ 
+@mixin rems($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+ 
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*10}px;
+ 
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  } 
+ 
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+ 
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  } 
+   
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+@mixin rowMachine($numPerRow, $margin) {
+  width: ((100% - (($numPerRow - 1) * $margin)) / $numPerRow);
+  &:nth-child(n) {
+    margin-bottom: $margin;
+    margin-right: $margin;
+  }
+  &:nth-child(#{$numPerRow}n) {
+    margin-right: 0;
+  }
+  &:nth-child(#{$numPerRow}n+1) {
+    clear: both;  
+  }
+}
+
+
+@mixin fallback_img($bg-position : 50% 50% ){
+  background-image: url('/assets/images/picture.png');
+  background-repeat: no-repeat;
+  background-position: $bg-position;
+}

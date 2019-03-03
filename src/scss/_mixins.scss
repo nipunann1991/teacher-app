@@ -145,20 +145,20 @@
     }
 }
 
-@mixin placeholder { 
-    @include optional-at-root('&::-webkit-input-placeholder') {
+@mixin placeholder() { 
+   &::-webkit-input-placeholder {
         @content;
     }
 
-    @include optional-at-root('&:-moz-placeholder') {
+    &:-moz-placeholder { /* Firefox 18- */
         @content;
     }
 
-    @include optional-at-root('&::-moz-placeholder') {
+    &::-moz-placeholder {  /* Firefox 19+ */
         @content;
     }
 
-    @include optional-at-root('&:-ms-input-placeholder') {
+    &:-ms-input-placeholder {
         @content;
     }
 }

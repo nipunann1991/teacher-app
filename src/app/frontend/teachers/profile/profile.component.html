@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 profile-left-nav" *ngIf="teacher_status == 4">
+				 <div class="inner">
+				 	<div class="profile-img"></div>
+				 	<ul>
+				 		<li><a routerLink="/profile/{{routParam}}/my-profile">My Profile</a></li>
+				 		<!-- <li><a routerLink="/profile/{{routParam}}/experience">Experience</a></li>
+				 		<li><a routerLink="/profile/{{routParam}}/qualifications">Qualifications</a></li>  -->
+				 		<li><a routerLink="/profile/{{routParam}}/my-class">My Classes</a></li>  
+				 		<li><a routerLink="/profile/{{routParam}}/my-ads">My Ads</a></li> 
+				 		<li><a routerLink="/profile/{{routParam}}/create-teacher">Messages</a></li> 
+				 		<li><a routerLink="/profile/{{routParam}}/account-settings">Account Settings</a></li>
+				 	</ul>
+				 </div>
+			</div>
+
+			<div class="col-md-12 profile-create" *ngIf="teacher_status < 4">
+				<h4>Hi {{teacher_data.name}}</h4>
+				<p>You are almost about to start. Just fill the below steps and start teaching your students</p>
+
+				<ul class="steps">
+					<li [ngClass]="{ 'active': teacher_status >= 0 }">1</li>
+					<li [ngClass]="{ 'active': teacher_status >= 1 }">2</li>
+					<li [ngClass]="{ 'active': teacher_status >= 2 }">3</li>
+				</ul>
+			</div>
+			<div class="col-md-8 offset-md-2 profile-route-viewer p0" *ngIf="teacher_status < 4">
+				<router-outlet></router-outlet>
+			</div>
+
+			<div class="col-md-9 profile-route-viewer p0" *ngIf="teacher_status == 4">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</div>

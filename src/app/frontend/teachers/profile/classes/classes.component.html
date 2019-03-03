@@ -1,0 +1,130 @@
+
+<section class="create-profile container-fluid ">
+	<form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+	    <div class="row mb30">     
+	       
+		    <div class="col-md-8">
+
+				<div class="block inner-page">
+				  	<div class="inner">
+
+				  		<h3>About My Class</h3>
+
+						<div class="form-group">
+						  <label for="title">Title *</label>
+						  <input type="text" class="form-control" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" id="title" placeholder="Ex: Classes for Grade 1 - 13"  > 
+
+						  <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+						    <div *ngIf="f.title.errors.required">Title is required</div>
+						  </div>
+
+						</div>
+
+						<div class="form-group">
+						  <label for="description">Description *</label>
+						  <textarea id="description"  class="form-control" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" class="form-control" name="description" id="" cols="30" rows="3" placeholder="Ex: Description about your class"></textarea>
+						</div>
+
+						<div class="form-group" [ngClass]="{ 'select2-invalid': submitted && registerForm.get('subjects').hasError('required') }">
+						    <label for="name">Subjects *</label>
+						    <ng-select2 [data]="exampleData" [options]="options" formControlName="subjects"  ></ng-select2>
+
+						    <div *ngIf="submitted && registerForm.get('subjects').hasError('required')" class="invalid-feedback"> 
+						      <div>Subject can't be empty</div>
+						   </div>
+
+						</div>  
+					</div>
+				</div>
+			
+			</div>
+
+		  	<div class="col-md-4 user-img">
+	          <div class="block inner-page">
+	            <div class="inner">
+
+	              <div class="block1">
+	                  <h3>Class Type</h3>
+
+	                  <div class="my-1">
+	                    <div class="custom-control custom-checkbox mr-sm-2">
+	                      <input type="checkbox" class="custom-control-input" id="individual">
+	                      <label class="custom-control-label" for="individual">Individual Classes</label>
+	                    </div>
+	                  </div>
+
+	                  <div class="my-1">
+	                    <div class="custom-control custom-checkbox mr-sm-2">
+	                      <input type="checkbox" class="custom-control-input" id="group">
+	                      <label class="custom-control-label" for="group">Group Classes</label>
+	                    </div>
+	                  </div>
+
+	                  <div class="my-1">
+	                    <div class="custom-control custom-checkbox mr-sm-2">
+	                      <input type="checkbox" class="custom-control-input" id="mass">
+	                      <label class="custom-control-label" for="mass">Mass Classes</label>
+	                    </div>
+	                  </div> 
+	              </div>
+
+	              	<div class="block2">
+	                  <h3>Languages</h3>
+
+	                 	<div class="my-1">
+	                      <div class="custom-control custom-checkbox mr-sm-2">
+	                        <input type="checkbox" class="custom-control-input" id="english">
+	                        <label class="custom-control-label" for="english">English</label>
+	                      </div>
+	                    </div>
+
+	                    <div class="my-1">
+	                      <div class="custom-control custom-checkbox mr-sm-2">
+	                        <input type="checkbox" class="custom-control-input" id="sinhala">
+	                        <label class="custom-control-label" for="sinhala">Sinhala</label>
+	                      </div>
+	                    </div>
+
+	                    <div class="my-1">
+	                      <div class="custom-control custom-checkbox mr-sm-2">
+	                        <input type="checkbox" class="custom-control-input" id="tamil">
+	                        <label class="custom-control-label" for="tamil">Tamil</label>
+	                      </div>
+	                    </div>  
+	                    
+	                    <div class="my-1">
+	                      <div class="custom-control custom-checkbox mr-sm-2">
+	                        <input type="checkbox" class="custom-control-input" id="other">
+	                        <label class="custom-control-label" for="other">Other</label>
+	                      </div>
+	                    </div>  
+	              	</div> 
+	              
+	            </div>
+	          </div>
+	      </div> 
+		</div>
+
+
+		<div class="row">     
+	       
+		    <div class="col-md-12">
+				<div class="block inner-page mb30">
+				  	<div class="inner">
+
+				  		<h3>Locations</h3>
+
+				  		<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus earum suscipit quis voluptatem enim. Dicta reprehenderit fuga ducimus non in nisi adipisci sequi est? Corporis voluptate eaque maxime possimus, fuga!</span>
+				  		<span>Assumenda hic reprehenderit vitae dignissimos saepe exercitationem nisi dolorem distinctio possimus molestiae. Architecto nulla facere, impedit atque aspernatur error, velit laboriosam accusantium eligendi minima, totam odio voluptates libero deserunt repellendus.</span>
+				  		<span>Quod ab earum possimus, error sit reprehenderit aliquam natus porro consectetur quam atque omnis doloremque, a iure eveniet asperiores minus assumenda veritatis. Officiis labore non mollitia possimus nisi accusamus, blanditiis!</span></p>
+
+				  	</div> 
+				</div>
+
+				<button class="btn submit">Save</button> 
+			</div>
+		</div>
+
+	</form>
+</section>

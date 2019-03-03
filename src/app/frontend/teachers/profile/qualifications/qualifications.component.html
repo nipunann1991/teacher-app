@@ -1,0 +1,55 @@
+<section class="create-profile container-fluid ">
+  <form  [formGroup]="qualificationForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">     
+       
+      <div class="col-md-12">
+        <div class="block inner-page">
+          <div class="inner">
+             
+             <h3>Qualifications</h3>
+               
+            <div class="form-group">
+               
+	            <label for="ex_title">Qualification Title *</label>
+	            <input type="text"  formControlName="ex_title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ex_title.errors }" id="ex_title"  placeholder="BSc in Computer Science"> 
+
+	            <div *ngIf="submitted && f.ex_title.errors" class="invalid-feedback">
+	              <div *ngIf="f.ex_title.errors.required">Title is required</div>
+	            </div>
+                
+            </div>
+            <div class="form-group">
+              <label for="desc">Description</label>
+              <textarea id="desc" formControlName="desc" class="form-control"  name="desc" id="" cols="30" rows="3"></textarea> 
+
+                <br />
+
+                <button type="submit" class="btn submit">Add Qualifications</button>
+                <button type="button" class="btn" *ngIf="teacher_status < 4 && exp_data.length > 0 " (click)="nextItem()">Next</button>
+
+            </div>   
+
+          </div> 
+     
+        </div>
+
+        
+      </div> 
+    </div>
+
+    <div class="my-qualifications block inner-page">
+      <ul>
+        <li *ngFor="let ex of exp_data ; let i = index">
+          <div class="title">{{ex.ex_title}} <span class="delete" (click)="removeExperience(i)">Delete</span></div>
+          <div class="desc">
+            <p>{{ex.desc}}</p>
+          </div>
+        </li> 
+        
+      </ul>
+    </div>    
+  </form>
+</section>
+
+<!-- <tinymce [config]="config" [(ngModel)]="html"></tinymce> -->

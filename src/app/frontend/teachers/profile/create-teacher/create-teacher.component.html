@@ -1,0 +1,158 @@
+
+<section class="create-profile container-fluid ">
+  <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">     
+       
+      <div class="col-md-12">
+        <div class="block inner-page">
+          <div class="inner">
+             
+             <h3>Personal Infomation</h3>
+               
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+ 
+                    <label for="name">Name *</label>
+                    <input type="text"  formControlName="name" [attr.disabled]="disabledArea" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" id="name"  > 
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                      <div *ngIf="f.name.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+              </div>
+                
+            </div>
+            <div class="form-group">
+              <label for="address">Address *</label>
+              <textarea id="address" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" name="address" id="" cols="30" rows="3"></textarea>
+
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                  <div *ngIf="f.address.errors.required">Address is required</div>
+                </div> 
+            </div> 
+
+             <div class="form-group">
+                <label for="nic">NIC/Passport No *</label>
+                <input type="text"  formControlName="nic" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nic.errors }" id="nic"  > 
+                <div *ngIf="submitted && f.nic.errors" class="invalid-feedback">
+                  <div *ngIf="f.nic.errors.required">Last Name is required</div>
+                </div>
+              </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-md-4 user-img">
+          <div class="block">
+            <div class="inner">
+
+              <div class="block1">
+                  <h3>Class Type</h3>
+
+                  <div class="my-1">
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="individual">
+                      <label class="custom-control-label" for="individual">Individual Classes</label>
+                    </div>
+                  </div>
+
+                  <div class="my-1">
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="group">
+                      <label class="custom-control-label" for="group">Group Classes</label>
+                    </div>
+                  </div>
+
+                  <div class="my-1">
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="mass">
+                      <label class="custom-control-label" for="mass">Mass Classes</label>
+                    </div>
+                  </div> 
+              </div>
+
+              <div class="block2">
+                  <h3>Languages</h3>
+
+                  <div class="my-1">
+                      <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="english">
+                        <label class="custom-control-label" for="english">English</label>
+                      </div>
+                    </div>
+
+                    <div class="my-1">
+                      <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="sinhala">
+                        <label class="custom-control-label" for="sinhala">Sinhala</label>
+                      </div>
+                    </div>
+
+                    <div class="my-1">
+                      <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="tamil">
+                        <label class="custom-control-label" for="tamil">Tamil</label>
+                      </div>
+                    </div>  
+                    
+                    <div class="my-1">
+                      <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="other">
+                        <label class="custom-control-label" for="other">Other</label>
+                      </div>
+                    </div> 
+
+              </div>
+              
+              
+            </div>
+          </div>
+      </div> -->
+    </div>
+
+
+    <div class="block mt30 mb30 inner-page">
+      <div class="inner">
+          
+        <h3>Contact information</h3>
+
+          <div class="form-group">
+
+            <div class="row">
+              <div class="col-md-6">
+                <label for="name">Contact Number *</label>
+                <input type="text" formControlName="contact_no" class="form-control" [ngClass]="{ 'is-invalid': (submitted && f.contact_no.errors) || (submitted && registerForm.get('contact_no').hasError('invalidNumber'))  }" name="contact_no" id="contact-no"  > 
+                 <div *ngIf="submitted && f.contact_no.errors" class="invalid-feedback">
+                    <div *ngIf="f.contact_no.errors.required">Contact Number is required</div>
+                    <div *ngIf="registerForm.get('contact_no').hasError('invalidNumber')">Contact Number is not valid</div>
+                 </div>
+              </div>
+              <div class="col-md-6"> 
+                <label for="skype">Skype ID</label>
+                <input type="text"  formControlName="skype" class="form-control" id="skype">   
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="form-group">
+              <label for="email_addr">Email Address *</label>
+              <input type="email"  formControlName="email_addr" [attr.disabled]="disabledArea" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email_addr.errors }" id="email_addr"  > 
+              <div *ngIf="submitted && f.email_addr.errors" class="invalid-feedback">
+                <div *ngIf="f.email_addr.errors.required">Last Name is required</div>
+              </div>
+          </div> 
+         
+      </div>
+
+    </div>
+    <button class="btn submit" *ngIf="teacher_status == 4">Save Details</button>
+    <button class="btn submit" *ngIf="teacher_status < 4">Next</button>
+  
+      
+        
+  </form>
+</section>

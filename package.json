@@ -25,7 +25,7 @@
     "angular2-tinymce": "^3.3.0",
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "ng-select2": "^1.0.8",
     "ngx-masonry": "^1.1.2",
     "ngx-tinymce": "^7.0.0",
